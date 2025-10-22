@@ -70,10 +70,14 @@ const Hero = () => {
               <Linkedin size={20} />
               LinkedIn
             </a>
-            <button className="btn-secondary text-gray-200 px-8 py-4 rounded-full flex items-center gap-2 font-medium">
-              <Download size={20} />
-              CV
-            </button>
+            <a
+               href="/src/cv/My_CV_Fr.pdf"
+               download
+               className="btn-secondary text-gray-200 px-8 py-4 rounded-full flex items-center gap-2 font-medium"
+             >
+               <Download size={20} />
+               Mon CV
+             </a>
           </div>
 
           {/* Infos de contact */}
