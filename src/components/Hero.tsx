@@ -25,7 +25,7 @@ const Hero = () => {
             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 blur-2xl opacity-50 animate-glow"></div>
             <div className="relative w-40 h-40 mx-auto rounded-full overflow-hidden border-4 border-purple-500/30 shadow-2xl shadow-purple-500/50">
               <img 
-                src="/src/img/1681119110123.jpeg" 
+                src="/public/img/1681119110123.jpeg" 
                 alt="Ibrahima Sebe Kourouma" 
                 className="w-full h-full object-cover"
               />
@@ -71,7 +71,7 @@ const Hero = () => {
               LinkedIn
             </a>
             <a
-               href="/src/cv/My_CV_Fr.pdf"
+               href="/public/cv/My_CV_Fr.pdf"
                download
                className="btn-secondary text-gray-200 px-8 py-4 rounded-full flex items-center gap-2 font-medium"
              >
