@@ -18,7 +18,7 @@ const Education = () => {
         "Conception d'API REST"
       ],
       current: true,
-      color: "blue"
+      color: "from-purple-500 to-purple-700"
     },
     {
       degree: "Licence en Informatique",
@@ -31,7 +31,7 @@ const Education = () => {
         "Licence 2 : Téléphonie IP, Architecture Réseaux, Microsoft Access, Excel, Merise"
       ],
       current: false,
-      color: "green"
+      color: "from-blue-500 to-blue-700"
     },
     {
       degree: "Diplôme de Baccalauréat",
@@ -44,86 +44,76 @@ const Education = () => {
         "Base solide pour les études supérieures en informatique"
       ],
       current: false,
-      color: "purple"
+      color: "from-pink-500 to-pink-700"
     }
   ];
 
-  const getColorClasses = (color: string) => {
-    const colorMap = {
-      blue: "border-blue-500 bg-blue-50",
-      green: "border-green-500 bg-green-50", 
-      purple: "border-purple-500 bg-purple-50"
-    };
-    return colorMap[color as keyof typeof colorMap] || colorMap.blue;
-  };
-
-  const getIconColor = (color: string) => {
-    const colorMap = {
-      blue: "text-blue-600",
-      green: "text-green-600",
-      purple: "text-purple-600"
-    };
-    return colorMap[color as keyof typeof colorMap] || colorMap.blue;
-  };
-
   return (
-    <section id="formation" className="py-20 bg-gray-50">
+    <section id="formation" className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Formation</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-green-500 mx-auto rounded-full"></div>
+        <div className="text-center mb-16 animate-float-in">
+          <h2 className="text-5xl font-bold text-white mb-4">
+            <span className="gradient-text">Formation</span>
+          </h2>
+          <div className="deco-line mx-auto"></div>
         </div>
 
         <div className="space-y-8">
           {education.map((edu, index) => (
             <div
               key={index}
-              className={`bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 ${getColorClasses(edu.color)}`}
+              className="card glass-hover"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
+              <div className={`h-2 bg-gradient-to-r ${edu.color} rounded-t-2xl`}></div>
               <div className="p-8">
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6">
                   <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2">
-                      <GraduationCap className={`${getIconColor(edu.color)}`} size={24} />
-                      <h3 className="text-xl font-semibold text-gray-900">
-                        {edu.degree}
-                      </h3>
-                      {edu.current && (
-                        <span className="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">
-                          En cours
-                        </span>
-                      )}
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className={`p-3 rounded-xl bg-gradient-to-br ${edu.color} text-white`}>
+                        <GraduationCap size={28} />
+                      </div>
+                      <div>
+                        <h3 className="text-2xl font-semibold text-white">
+                          {edu.degree}
+                        </h3>
+                        {edu.current && (
+                          <span className="inline-block mt-1 bg-gradient-to-r from-green-500 to-emerald-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-lg">
+                            En cours
+                          </span>
+                        )}
+                      </div>
                     </div>
-                    <p className="text-gray-600 mb-2">{edu.subtitle}</p>
-                    <h4 className="text-lg font-medium text-blue-600 mb-4">
+                    <p className="text-gray-300 mb-3 ml-16">{edu.subtitle}</p>
+                    <h4 className="text-xl font-medium gradient-text-static ml-16">
                       {edu.school}
                     </h4>
                   </div>
 
-                  <div className="flex flex-col md:items-end gap-2 text-sm text-gray-600">
-                    <div className="flex items-center gap-1">
-                      <Calendar size={16} />
+                  <div className="flex flex-col md:items-end gap-3 text-sm text-gray-400 mt-4 md:mt-0">
+                    <div className="flex items-center gap-2">
+                      <Calendar size={18} className="text-purple-400" />
                       <span>{edu.period}</span>
                     </div>
-                    <div className="flex items-center gap-1">
-                      <MapPin size={16} />
+                    <div className="flex items-center gap-2">
+                      <MapPin size={18} className="text-pink-400" />
                       <span>{edu.location}</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="border-t border-gray-200 pt-6">
-                  <h5 className="font-semibold text-gray-900 mb-3">Matières principales :</h5>
-                  <ul className="grid md:grid-cols-2 gap-2">
+                <div className="border-t border-gray-700 pt-6">
+                  <h5 className="font-semibold text-white mb-4 flex items-center gap-2">
+                    <span className="text-purple-400">📚</span>
+                    Matières principales :
+                  </h5>
+                  <ul className="grid md:grid-cols-2 gap-3">
                     {edu.description.map((item, itemIndex) => (
                       <li
                         key={itemIndex}
-                        className="flex items-start gap-2 text-gray-700"
+                        className="flex items-start gap-2 text-gray-300"
                       >
-                        <div className={`w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 ${
-                          edu.color === 'blue' ? 'bg-blue-600' :
-                          edu.color === 'green' ? 'bg-green-600' : 'bg-purple-600'
-                        }`}></div>
+                        <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${edu.color} mt-2 flex-shrink-0`}></div>
                         <span>{item}</span>
                       </li>
                     ))}
