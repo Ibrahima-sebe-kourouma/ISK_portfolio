@@ -71,13 +71,15 @@ const Hero = () => {
               LinkedIn
             </a>
             <a
-               href="/public/cv/My_CV_Fr.pdf"
-               download
-               className="btn-secondary text-gray-200 px-8 py-4 rounded-full flex items-center gap-2 font-medium"
-             >
-               <Download size={20} />
-               Mon CV
-             </a>
+              href="https://github.com/Ibrahima-sebe-kourouma/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary text-gray-200 px-8 py-4 rounded-full flex items-center gap-2 font-medium"
+            >
+              <Github size={20} />
+              GitHub
+            </a>
+             
           </div>
 
           {/* Infos de contact */}
